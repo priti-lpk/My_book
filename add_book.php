@@ -297,16 +297,16 @@ if (isset($_GET['id'])) {
                 $("#language2_pdf").attr("disabled", true);
                 $("#language1_details").val('');
                 $("#language2_details").val('');
-                $('#language1_pdf').attr({ value: '' }); 
-                $('#language2_pdf').attr({ value: '' });
-                            });
+                $('#language1_pdf').attr({value: 'null'});
+                $('#language2_pdf').attr({value: 'null'});
+            });
             $("#pdf").click(function () {
                 $("#language1_details").attr("disabled", true);
                 $("#language2_details").attr("disabled", true);
                 $("#language1_pdf").attr("disabled", false);
                 $("#language2_pdf").attr("disabled", false);
-                $('#language1_pdf').attr({ value: '' }); 
-                $('#language2_pdf').attr({ value: '' });
+                $('#language1_pdf').attr({value: 'null'});
+                $('#language2_pdf').attr({value: 'null'});
                 $("#language1_details").val('');
                 $("#language2_details").val('');
             })
