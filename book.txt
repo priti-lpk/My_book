@@ -1,0 +1,42 @@
+API URL:
+
+	https://lpktechnosoft.com/api.php
+
+	id=260898
+	name=api name
+	username=username
+
+API Methods:
+
+	1. category()
+	2. book()
+	3. all_book()
+	4. language()
+		
+What parameters to be Passed?
+
+-> Use POST method to pass the parameters
+
+1) category():
+
+	name: category
+
+2) book():
+
+	name:book
+        category_id:1
+		
+3) all_book():
+
+	name:all_book
+	
+4) language():
+	
+	name:language
+
+5)firebase_token_list()
+    
+        name : firebase_token_list
+        device_id : 65ghfgh65
+        device_token : ghjgh768
+        
