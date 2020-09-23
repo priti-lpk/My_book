@@ -20,7 +20,7 @@ if (isset($_GET['id'])) {
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Add Book</title>
+        <title>Add My Book </title>
 
         <!-- Custom fonts for this template-->
         <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
