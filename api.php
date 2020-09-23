@@ -9,7 +9,7 @@ $Authorization = Authorization;
 $request_auth = getallheaders();
 if (!empty($request_auth['Authorization'])) {
     $request_auth = $request_auth['Authorization'];
-    echo $request_auth;
+//    echo $request_auth;
     if (!isset($_POST['name'])) {
         $response['status'] = false;
         $response['message'] = "Unknown requested name..";
