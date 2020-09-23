@@ -107,63 +107,63 @@ if (isset($_GET['id'])) {
                                     </div>
                                 </div>
                                 <div id="lan_details">
-                                <div class="form-group row">
-                                    <?php
-                                    $dba = new DBAdapter();
-                                    $data1 = $dba->getRow("setting", array("id", "language1"), "1");
-                                    foreach ($data1 as $subData) {
-                                        echo'<label for="example-text-input" class="col-sm-2 col-form-label">' . $subData[1] . ' Details</label>';
-                                    }
-                                    ?>                                    
-                                    <div class="col-sm-10">
+                                    <div class="form-group row">
                                         <?php
-                                        if (isset($_GET['id'])) {
-                                            if ($data[0]['language1_details'] == '') {
-                                                ?>
-                                        <textarea class="form-control" name="language1_details" id="language1_details"></textarea>
-                                                <?php
+                                        $dba = new DBAdapter();
+                                        $data1 = $dba->getRow("setting", array("id", "language1"), "1");
+                                        foreach ($data1 as $subData) {
+                                            echo'<label for="example-text-input" class="col-sm-2 col-form-label">' . $subData[1] . ' Details</label>';
+                                        }
+                                        ?>                                    
+                                        <div class="col-sm-10">
+                                            <?php
+                                            if (isset($_GET['id'])) {
+                                                if ($data[0]['language1_details'] == '') {
+                                                    ?>
+                                                    <textarea class="form-control" name="language1_details" id="language1_details" disabled=""></textarea>
+                                                    <?php
+                                                } else {
+                                                    ?>
+                                                    <textarea class="form-control" name="language1_details" id="language1_details"><?= (isset($_GET['id'])) ? $data[0]['language1_details'] : '' ?></textarea>
+                                                    <?php
+                                                }
                                             } else {
                                                 ?>
-                                                <textarea class="form-control" name="language1_details" id="language1_details"><?= (isset($_GET['id'])) ? $data[0]['language1_details'] : '' ?></textarea>
-                                                <?php
-                                            }
-                                        } else {
-                                            ?>
                                                 <textarea class="form-control" name="language1_details" id="language1_details" disabled=""></textarea>
-                                            <?php
-                                        }
-                                        ?>
-                                    </div>
-                                </div> 
-
-                                <div class="form-group row">
-                                    <?php
-                                    $dba = new DBAdapter();
-                                    $data1 = $dba->getRow("setting", array("id", "language2"), "1");
-                                    foreach ($data1 as $subData) {
-                                        echo'<label for="example-text-input" class="col-sm-2 col-form-label">' . $subData[1] . ' Details</label>';
-                                    }
-                                    ?>
-                                    <div class="col-sm-10">
-                                        <?php
-                                        if (isset($_GET['id'])) {
-                                            if ($data[0]['language2_details'] == '') {
-                                                ?>
-                                                <textarea class="form-control" name="language2_details" id="language2_details" ></textarea>
-                                                <?php
-                                            } else {
-                                                ?>
-                                                <textarea class="form-control" name="language2_details" id="language2_details"><?= (isset($_GET['id'])) ? $data[0]['language2_details'] : '' ?></textarea>
                                                 <?php
                                             }
-                                        } else {
                                             ?>
-                                            <textarea class="form-control" name="language2_details" id="language2_details" disabled=""></textarea>
-                                            <?php
+                                        </div>
+                                    </div> 
+
+                                    <div class="form-group row">
+                                        <?php
+                                        $dba = new DBAdapter();
+                                        $data1 = $dba->getRow("setting", array("id", "language2"), "1");
+                                        foreach ($data1 as $subData) {
+                                            echo'<label for="example-text-input" class="col-sm-2 col-form-label">' . $subData[1] . ' Details</label>';
                                         }
                                         ?>
-                                    </div>
-                                </div> 
+                                        <div class="col-sm-10">
+                                            <?php
+                                            if (isset($_GET['id'])) {
+                                                if ($data[0]['language2_details'] == '') {
+                                                    ?>
+                                                    <textarea class="form-control" name="language2_details" id="language2_details" disabled=""></textarea>
+                                                    <?php
+                                                } else {
+                                                    ?>
+                                                    <textarea class="form-control" name="language2_details" id="language2_details"><?= (isset($_GET['id'])) ? $data[0]['language2_details'] : '' ?></textarea>
+                                                    <?php
+                                                }
+                                            } else {
+                                                ?>
+                                                <textarea class="form-control" name="language2_details" id="language2_details" disabled=""></textarea>
+                                                <?php
+                                            }
+                                            ?>
+                                        </div>
+                                    </div> 
                                 </div>
                                 <div class="form-group row" id="lan_pdf">
                                     <?php
@@ -178,7 +178,7 @@ if (isset($_GET['id'])) {
                                         if (isset($_GET['id'])) {
                                             if ($data[0]['language1_pdf'] == '') {
                                                 ?>
-                                                <input type="file" class="form-control" name="language1_pdf" id="language1_pdf"  />
+                                                <input type="file" class="form-control" name="language1_pdf" id="language1_pdf"  value="" disabled=""/>
                                                 <?php
                                             } else {
                                                 ?>
@@ -204,7 +204,7 @@ if (isset($_GET['id'])) {
                                         if (isset($_GET['id'])) {
                                             if ($data[0]['language2_pdf'] == '') {
                                                 ?>
-                                                <input type="file" class="form-control" name="language2_pdf" id="language2_pdf" />
+                                                <input type="file" class="form-control" name="language2_pdf" id="language2_pdf" value="" disabled=""/>
                                                 <?php
                                             } else {
                                                 ?>

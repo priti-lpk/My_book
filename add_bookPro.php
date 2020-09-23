@@ -67,12 +67,10 @@ if (isset($_POST['action'])) {
         }
     } else if ($_POST['action'] == 'edit') {
         $id = $_POST['id'];
-//        echo $id;
-        if ($_POST['action'] == 'edit' && $_FILES['language1_pdf']['name'] == '' && $_FILES["language2_pdf"]["name"] == '') {
-            unset($_POST['action']);
-            unset($_POST['option']);
-            unset($_POST['id']);
-            echo $_FILES["language1_pdf"]["name"];
+        unset($_POST['action']);
+        unset($_POST['option']);
+        unset($_POST['id']);
+        if ($_FILES['language1_pdf']['name'] !== '' && $_FILES["language2_pdf"]["name"] !== '') {
             if ($_FILES["language1_pdf"]["name"]) {
                 $uploads_dir = './Book_pdf';
                 $tmp_name = $_FILES["language1_pdf"]["tmp_name"];
@@ -87,6 +85,8 @@ if (isset($_POST['action'])) {
                 move_uploaded_file($tmp_name, "$uploads_dir/$id$name");
                 $_POST['language2_pdf'] = $id . $_FILES["language2_pdf"]["name"];
             }
+            $_POST['language1_pdf'] = $id . $_FILES["language1_pdf"]["name"];
+            $_POST['language2_pdf'] = $id . $_FILES["language2_pdf"]["name"];
             if ($dba->updateRow("add_book", $_POST, "id=" . $id)) {
                 $msg = "updated successfully!";
 //                header('location:add_book.php');
@@ -94,6 +94,8 @@ if (isset($_POST['action'])) {
                 $msg = "update fail!";
             }
         } else {
+            $_POST['language1_pdf'] = "";
+            $_POST['language2_pdf'] = "";
             if ($dba->updateRow("add_book", $_POST, "id=" . $id)) {
                 $msg = "updated successfully!";
                 header('location:add_book.php');

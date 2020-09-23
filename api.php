@@ -9,6 +9,7 @@ $Authorization = Authorization;
 $request_auth = getallheaders();
 if (!empty($request_auth['Authorization'])) {
     $request_auth = $request_auth['Authorization'];
+    echo $request_auth;
     if (!isset($_POST['name'])) {
         $response['status'] = false;
         $response['message'] = "Unknown requested name..";
@@ -16,6 +17,7 @@ if (!empty($request_auth['Authorization'])) {
         die();
     }
     $tmp = Auth($_POST['name']);
+    echo $tmp;
     if (!$tmp) {
         $response['status'] = false;
         $response['message'] = "Unauthorised request";
