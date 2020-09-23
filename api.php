@@ -17,7 +17,7 @@ if (!empty($request_auth['Authorization'])) {
         die();
     }
     $tmp = Auth($_POST['name']);
-    echo $tmp;
+//    echo $tmp;
     if (!$tmp) {
         $response['status'] = false;
         $response['message'] = "Unauthorised request";
@@ -50,7 +50,7 @@ if (!empty($request_auth['Authorization'])) {
                 }
             }
             if (!empty($book)) {
-                echo json_encode(array("status" => TRUE, "data" => $book, "msg" => "data get successfully"));
+                echo json_encode(array("status" => TRUE, "data" => $book, "url"=>"http://book.lpktechnosoft.com/Book_pdf","msg" => "data get successfully"));
             } else {
                 echo json_encode(array("status" => FALSE, "data" => $book, "msg" => "No Data available"));
             }
@@ -66,7 +66,7 @@ if (!empty($request_auth['Authorization'])) {
             }
         }
         if (!empty($book)) {
-            echo json_encode(array("status" => TRUE, "data" => $book, "msg" => "data get successfully"));
+            echo json_encode(array("status" => TRUE, "data" => $book,"url"=>"http://book.lpktechnosoft.com/Book_pdf", "msg" => "data get successfully"));
         } else {
             echo json_encode(array("status" => FALSE, "data" => $book, "msg" => "No Data available"));
         }
