@@ -106,6 +106,7 @@ if (isset($_GET['id'])) {
                                         <label for="female">PDF</label><br>
                                     </div>
                                 </div>
+                                <div id="lan_details">
                                 <div class="form-group row">
                                     <?php
                                     $dba = new DBAdapter();
@@ -119,7 +120,7 @@ if (isset($_GET['id'])) {
                                         if (isset($_GET['id'])) {
                                             if ($data[0]['language1_details'] == '') {
                                                 ?>
-                                                <textarea class="form-control" name="language1_details" id="language1_details" disabled=""></textarea>
+                                        <textarea class="form-control" name="language1_details" id="language1_details"></textarea>
                                                 <?php
                                             } else {
                                                 ?>
@@ -128,7 +129,7 @@ if (isset($_GET['id'])) {
                                             }
                                         } else {
                                             ?>
-                                            <textarea class="form-control" name="language1_details" id="language1_details" disabled=""></textarea>
+                                                <textarea class="form-control" name="language1_details" id="language1_details" disabled=""></textarea>
                                             <?php
                                         }
                                         ?>
@@ -148,7 +149,7 @@ if (isset($_GET['id'])) {
                                         if (isset($_GET['id'])) {
                                             if ($data[0]['language2_details'] == '') {
                                                 ?>
-                                                <textarea class="form-control" name="language2_details" id="language2_details" disabled=""></textarea>
+                                                <textarea class="form-control" name="language2_details" id="language2_details" ></textarea>
                                                 <?php
                                             } else {
                                                 ?>
@@ -163,7 +164,8 @@ if (isset($_GET['id'])) {
                                         ?>
                                     </div>
                                 </div> 
-                                <div class="form-group row">
+                                </div>
+                                <div class="form-group row" id="lan_pdf">
                                     <?php
                                     $dba = new DBAdapter();
                                     $data1 = $dba->getRow("setting", array("id", "language1"), "1");
@@ -176,7 +178,7 @@ if (isset($_GET['id'])) {
                                         if (isset($_GET['id'])) {
                                             if ($data[0]['language1_pdf'] == '') {
                                                 ?>
-                                                <input type="file" class="form-control" name="language1_pdf" id="language1_pdf" disabled="" />
+                                                <input type="file" class="form-control" name="language1_pdf" id="language1_pdf"  />
                                                 <?php
                                             } else {
                                                 ?>
@@ -185,7 +187,7 @@ if (isset($_GET['id'])) {
                                             }
                                         } else {
                                             ?>
-                                            <input type="file" class="form-control" name="language1_pdf" id="language1_pdf" disabled="" />
+                                            <input type="file" class="form-control" name="language1_pdf" id="language1_pdf" disabled=""/>
                                             <?php
                                         }
                                         ?>
@@ -202,7 +204,7 @@ if (isset($_GET['id'])) {
                                         if (isset($_GET['id'])) {
                                             if ($data[0]['language2_pdf'] == '') {
                                                 ?>
-                                                <input type="file" class="form-control" name="language2_pdf" id="language2_pdf" disabled="" />
+                                                <input type="file" class="form-control" name="language2_pdf" id="language2_pdf" />
                                                 <?php
                                             } else {
                                                 ?>
@@ -211,10 +213,11 @@ if (isset($_GET['id'])) {
                                             }
                                         } else {
                                             ?>
-                                            <input type="file" class="form-control" name="language2_pdf" id="language2_pdf" disabled="" />
+                                            <input type="file" class="form-control" name="language2_pdf" id="language2_pdf" disabled=""/>
                                             <?php
                                         }
-                                        ?>                                    </div>
+                                        ?>                                   
+                                    </div>
                                 </div>
                                 <div class="form-group row">  
                                     <div class="col-sm-2"> </div>
@@ -293,22 +296,23 @@ if (isset($_GET['id'])) {
             $("#details").click(function () {
                 $("#language1_details").attr("disabled", false);
                 $("#language2_details").attr("disabled", false);
-                $("#language1_pdf").attr("disabled", true);
-                $("#language2_pdf").attr("disabled", true);
+                document.getElementById("lan_pdf").style.display = "none";
+                document.getElementById("lan_details").style.display = "block";
                 $("#language1_details").val('');
                 $("#language2_details").val('');
-                $('#language1_pdf').attr({value: 'null'});
-                $('#language2_pdf').attr({value: 'null'});
+                $('#language1_pdf').attr({value: ''});
+                $('#language2_pdf').attr({value: ''});
             });
             $("#pdf").click(function () {
-                $("#language1_details").attr("disabled", true);
-                $("#language2_details").attr("disabled", true);
                 $("#language1_pdf").attr("disabled", false);
                 $("#language2_pdf").attr("disabled", false);
-                $('#language1_pdf').attr({value: 'null'});
-                $('#language2_pdf').attr({value: 'null'});
+                $('#language1_pdf').attr({value: ''});
+                $('#language2_pdf').attr({value: ''});
                 $("#language1_details").val('');
                 $("#language2_details").val('');
+                document.getElementById("lan_details").style.display = "none";
+                document.getElementById("lan_pdf").style.display = "block";
+
             })
         </script>
     </body>

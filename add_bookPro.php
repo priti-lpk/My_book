@@ -66,10 +66,12 @@ if (isset($_POST['action'])) {
             $msg = "Category create fail! " . mysqli_error($con);
         }
     } else if ($_POST['action'] == 'edit') {
-        if ($_POST['action'] == 'edit' && $_FILES['language1_pdf']['name'] !== '' && $_FILES["language2_pdf"]["name"] !== '') {
-            $id = $_POST['id'];
+        $id = $_POST['id'];
+//        echo $id;
+        if ($_POST['action'] == 'edit' && $_FILES['language1_pdf']['name'] == '' && $_FILES["language2_pdf"]["name"] == '') {
             unset($_POST['action']);
             unset($_POST['option']);
+            unset($_POST['id']);
             echo $_FILES["language1_pdf"]["name"];
             if ($_FILES["language1_pdf"]["name"]) {
                 $uploads_dir = './Book_pdf';
@@ -87,7 +89,7 @@ if (isset($_POST['action'])) {
             }
             if ($dba->updateRow("add_book", $_POST, "id=" . $id)) {
                 $msg = "updated successfully!";
-                header('location:add_book.php');
+//                header('location:add_book.php');
             } else {
                 $msg = "update fail!";
             }
