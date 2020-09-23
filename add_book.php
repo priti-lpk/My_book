@@ -219,6 +219,7 @@ if (isset($_GET['id'])) {
                                         ?>                                   
                                     </div>
                                 </div>
+                                &nbsp;
                                 <div class="form-group row">  
                                     <div class="col-sm-2"> </div>
                                     <div class="col-sm-10">

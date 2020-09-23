@@ -69,7 +69,9 @@ $dba = new DBAdapter();
                                                 echo'<th>' . $subData[1] . ' Title</th>
                                                      <th>' . $subData[2] . ' Title</th>
                                                      <th>' . $subData[1] . ' Details</th>
-                                                     <th>' . $subData[2] . ' Details</th>';
+                                                     <th>' . $subData[2] . ' Details</th>
+                                                     <th>' . $subData[1] . ' PDF</th>
+                                                     <th>' . $subData[2] . ' PDF</th>';
                                             }
                                             ?>
                                             <th>Action</th>
@@ -90,6 +92,8 @@ $dba = new DBAdapter();
                                                 echo "<td>" . $row['language2_title'] . "</td>";
                                                 echo "<td>" . $row['language1_details'] . "</td>";
                                                 echo "<td>" . $row['language2_details'] . "</td>";
+                                                echo "<td><a href=Book_pdf/" . $row['language1_pdf'] . " target='_blank'>" . $row['language1_pdf'] . "</a></td>";
+                                                echo "<td><a href=Book_pdf/" . $row['language2_pdf'] . " target='_blank'>" . $row['language2_pdf'] . "</a></td>";
                                                 echo "<td><a href='add_book.php?id=" . $row['id'] . "' class='btn btn-primary waves-effect waves-light'>Edit</a>&nbsp<a href='delete.php?bid=" . $row['id'] . "' class='btn btn-primary waves-effect waves-light'>Delete</a></td>";
                                                 echo "</tr>";
                                                 $i++;
