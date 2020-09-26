@@ -42,7 +42,7 @@ if (!empty($request_auth['Authorization'])) {
     } elseif ($_POST['name'] == 'book') {
         if (isset($_POST['category_id'])) {
 
-            $data = $dba->getRowAssoc("add_book", array("*"), "category_id=" . $_POST['category_id']);
+            $data = $dba->getRowAssoc("`add_book` INNER JOIN category_master ON add_book.category_id=category_master.id", array("add_book.*,category_master.language1,category_master.language2"), "category_id=" . $_POST['category_id']);
             $book = array();
             if (!empty($data)) {
                 foreach ($data as $subData) {
@@ -58,7 +58,7 @@ if (!empty($request_auth['Authorization'])) {
         die();
     } elseif ($_POST['name'] == 'all_book') {
 
-        $data = $dba->getRowAssoc("add_book", array("*"), "1");
+        $data = $dba->getRowAssoc("`add_book` INNER JOIN category_master ON add_book.category_id=category_master.id", array("add_book.*,category_master.language1,category_master.language2"), "1");
         $book = array();
         if (!empty($data)) {
             foreach ($data as $subData) {
